@@ -284,7 +284,8 @@
 
             // Trigger download
             const link = document.createElement('a');
-            link.href = `https://github.com/ThanhNguyenVN93/releases/download/latest/${filename}`;
+            // Tìm dòng này trong file của bạn:
+            link.href = `https://github.com/ThanhNguyenVN93/ThanhNguyenVN93.github.io/releases/download/latest/${filename}`;
             link.download = filename;
             document.body.appendChild(link);
             link.click();
