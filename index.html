@@ -85,20 +85,23 @@
     <div id="toast" class="toast">✨ Thank you! Download started...</div>
 
     <script>
-        function downloadTool(filename) {
-            const toast = document.getElementById('toast');
-            toast.style.display = 'block';
-            
-            const link = document.createElement('a');
-            // Đã fix: Thêm tên Repository đầy đủ vào URL
-            link.href = `https://github.com/ThanhNguyenVN93/ThanhNguyenVN93.github.io/releases/download/latest/${filename}`;
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+    function downloadTool(filename) {
+        // Hiện thông báo cho vui mắt
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = '✨ Cảm ơn Thanh! Đang tải file...';
+        document.body.appendChild(toast);
 
-            setTimeout(() => { toast.style.display = 'none'; }, 3000);
-        }
-    </script>
+        const link = document.createElement('a');
+        // ĐƯỜNG LINK CHUẨN: Phải có /ThanhNguyenVN93.github.io/ ở giữa
+        link.href = `https://github.com/ThanhNguyenVN93/ThanhNguyenVN93.github.io/releases/download/latest/${filename}`;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(() => { document.body.removeChild(toast); }, 3000);
+    }
+</script>
 </body>
 </html>
